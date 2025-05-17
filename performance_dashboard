@@ -1,0 +1,9 @@
+SELECT
+  campaign_id,
+  COUNT(click_id) AS total_clicks,
+  ROUND(SUM(revenue), 2) AS total_revenue,
+  ROUND(SUM(revenue) / NULLIF(COUNT(click_id), 0), 2) AS avg_revenue_per_click,
+  MIN(clicked_at) AS first_click,
+  MAX(clicked_at) AS last_click
+FROM {{ ref('stg_clicks') }}
+GROUP BY campaign_id

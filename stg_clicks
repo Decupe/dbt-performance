@@ -1,0 +1,8 @@
+SELECT
+  click_id,
+  user_id,
+  campaign_id,
+  TIMESTAMP(clicked_at) AS clicked_at,
+  revenue,
+  traffic_source
+FROM `dbt-demo-460107.dbt_sigwilo.clicks_raw`

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_clicks
+    description: "Staging model for raw clickstream data"
+    columns:
+      - name: click_id
+        description: "Unique identifier for each click"
+        tests:
+          - not_null
+          - unique
+      - name: revenue
+        description: "Revenue generated from this click"
+        tests:
+          - not_null
+
+  - name: performance_dashboard
+    description: "Aggregated metrics for performance dashboards"
